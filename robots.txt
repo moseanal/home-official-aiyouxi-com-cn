@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://moseanal.github.io/home-official-aiyouxi-com-cn/sitemap.xml

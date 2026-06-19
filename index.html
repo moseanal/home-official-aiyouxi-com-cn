@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 主题知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+      background: #f4f7fb;
+      color: #1d2b3f;
+      line-height: 1.7;
+    }
+    .hero {
+      background: linear-gradient(145deg, #0b1926, #1c3446);
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      color: #e6edf5;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, #f4f7fb);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      max-width: 640px;
+      margin: 0 auto 1rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #3c7a9e;
+      color: white;
+      padding: 0.2rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .welcome-card {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      padding: 2.8rem 2.5rem;
+      margin: -1.8rem auto 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .welcome-card p {
+      font-size: 1.08rem;
+      margin-bottom: 1.2rem;
+    }
+    .welcome-card a {
+      color: #1c6c9c;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+    }
+    .welcome-card a:hover {
+      color: #0c4a6e;
+    }
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 500;
+      margin: 2.5rem 0 1.2rem;
+      border-left: 5px solid #3c7a9e;
+      padding-left: 1.1rem;
+      color: #1b2d41;
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 1.8rem 0 2.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(28, 108, 156, 0.06);
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+      color: #1f3a4f;
+    }
+    .card p {
+      color: #3e4f61;
+      margin-bottom: 0.6rem;
+    }
+    .card .tag {
+      display: inline-block;
+      background: #e4eef6;
+      color: #1c6c9c;
+      border-radius: 20px;
+      padding: 0.1rem 1rem;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+    }
+    .info-area {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem 2.8rem;
+      margin: 2rem 0 2.8rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+    }
+    .info-area p {
+      margin-bottom: 0.9rem;
+    }
+    .faq-mini {
+      background: #edf3f9;
+      border-radius: 18px;
+      padding: 2rem 2.2rem;
+      margin: 2rem 0 2.5rem;
+    }
+    .faq-item {
+      margin-bottom: 1.6rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1a3145;
+      margin-bottom: 0.25rem;
+    }
+    .faq-item p {
+      margin-left: 1.2rem;
+      color: #2d4256;
+    }
+    .tip-box {
+      background: #dbe8f2;
+      border-radius: 18px;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0;
+      color: #1b2b3c;
+    }
+    .tip-box span {
+      font-weight: 600;
+      color: #1c6c9c;
+    }
+    .related {
+      margin: 2.8rem 0 3rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid #d4dfe9;
+    }
+    .related a {
+      color: #1c6c9c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .related a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem 3rem;
+      color: #607587;
+      font-size: 0.9rem;
+      border-top: 1px solid #d9e2ed;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .welcome-card { padding: 1.8rem 1.5rem; }
+      .info-area { padding: 1.8rem 1.5rem; }
+      .faq-mini { padding: 1.5rem 1.2rem; }
+      .card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>爱游戏 · 主题知识库</h1>
+    <p class="sub">从机制到叙事，从怀旧到前沿 —— 围绕电子游戏的文化、设计与思辨</p>
+    <span class="badge">知识目录 · 持续构建</span>
+  </header>
+
+  <div class="container">
+    <!-- 说明区 / 入口 -->
+    <div class="welcome-card">
+      <p>欢迎来到围绕「爱游戏」展开的信息集合。这里不谈排行与速通，而是从游戏作为一种文化载体出发，梳理其设计语言、叙事逻辑与社群现象。若您希望进一步探索完整的专题内容，可直接前往 <a href="https://home-official-aiyouxi.com.cn">爱游戏</a> 站点浏览深度文章与分类索引。</p>
+      <p>本站点作为知识库的轻量入口，侧重提供目录式指引与主题卡片，帮助快速定位感兴趣的方向。</p>
+    </div>
+
+    <!-- 目录感布局：特点卡片 -->
+    <h2 class="section-title">核心关注领域</h2>
+    <div class="grid-cards">
+      <div class="card">
+        <h3>机制与规则</h3>
+        <p>从回合制到实时策略、从资源管理到随机性设计，剖析不同系统的内在逻辑与玩家决策空间。</p>
+        <span class="tag">系统设计</span>
+      </div>
+      <div class="card">
+        <h3>叙事与世界观</h3>
+        <p>线性叙事、碎片叙事、环境叙事……游戏如何通过交互传递故事，又如何与文学、电影产生分野。</p>
+        <span class="tag">交互叙事</span>
+      </div>
+      <div class="card">
+        <h3>美学与声音</h3>
+        <p>像素、低多边、水彩、写实 —— 视觉风格的选择如何影响沉浸感，音乐与音效的暗示作用。</p>
+        <span class="tag">视听语言</span>
+      </div>
+      <div class="card">
+        <h3>社群与文化</h3>
+        <p>粉丝创作、模组生态、竞技场景、怀旧风潮 —— 游戏之外的文化生产同样值得关注。</p>
+        <span class="tag">社会向</span>
+      </div>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="tip-box">
+      <span>📌 提示：</span> 本知识库并非评测集合，也非攻略索引。它更像一张主题地图 —— 每个卡片代表一个可深挖的领域。建议按兴趣选择方向，再通过「爱游戏」站内的分类标签或搜索功能获取更具体的文章与讨论。
+    </div>
+
+    <!-- 相关信息区 + FAQ 摘要 -->
+    <h2 class="section-title">常见疑问 · 摘要</h2>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <strong>Q：这里的内容适合完全不了解游戏的人吗？</strong>
+        <p>大部分文章从基础概念切入，但也会涉及中等深度的分析。建议从「机制与规则」或「美学与声音」开始，这些板块较少依赖特定作品知识。</p>
+      </div>
+      <div class="faq-item">
+        <strong>Q：是否有指向具体游戏的分析？</strong>
+        <p>部分条目会以知名作品为例说明设计原理，但目的并非评价游戏好坏，而是阐释其设计选择与效果。您可在相关专题下找到案例索引。</p>
+      </div>
+      <div class="faq-item">
+        <strong>Q：内容更新频率与来源？</strong>
+        <p>知识库依托「爱游戏」站点内容，不定期整合新文章、术语卡片与话题脉络。推荐直接访问 <a href="https://home-official-aiyouxi.com.cn">爱游戏</a> 订阅更新或浏览时间线。</p>
+      </div>
+    </div>
+
+    <!-- 更多相关信息 -->
+    <div class="info-area">
+      <h3 style="font-weight:500; margin-bottom:0.8rem; color:#1a3145;">📚 你可能还想了解</h3>
+      <p>• 游戏机制中的「正反馈循环」与「负反馈循环」的定义与经典实例 —— 可在机制板块找到专门解释。</p>
+      <p>• 独立游戏与商业游戏在叙事策略上的常见差异，以及两者互相借鉴的趋势。</p>
+      <p>• 游戏音乐中的动态分层系统（例如《传说之下》《蔚蓝》中的情绪适配配乐）如何影响玩家感受。</p>
+      <p>• 从红白机到当代引擎，技术限制如何反向催生了艺术风格创新（像素艺术的当代复兴）。</p>
+    </div>
+
+    <!-- 相关链接区 -->
+    <div class="related">
+      <p>🏷️ 延伸方向：<a href="#">游戏化思考</a> · <a href="#">交互考古</a> · <a href="#">规则美学</a> · 主题入口：<a href="https://home-official-aiyouxi.com.cn">爱游戏</a></p>
+    </div>
+
+    <footer>
+      <p>爱游戏 · 主题知识库 · 基于兴趣与梳理</p>
+      <p style="margin-top:0.3rem;">内容仅供学习与参考 · 无诱导倾向</p>
+    </footer>
+  </div>
+</body>
+</html>

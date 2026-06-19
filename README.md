@@ -1,2 +1,35 @@
-# home-official-aiyouxi-com-cn
-爱游戏 - https://home-official-aiyouxi.com.cn
+# 爱游戏 - 官方网站
+
+欢迎访问 **爱游戏** 官方站点 [https://home-official-aiyouxi.com.cn](https://home-official-aiyouxi.com.cn)。  
+爱游戏致力于为玩家提供轻松、便捷的游戏资讯与社区服务，是游戏爱好者日常浏览与交流的集合地。
+
+## 简介
+
+爱游戏是一个以游戏玩家为中心的内容平台。通过 [https://home-official-aiyouxi.com.cn](https://home-official-aiyouxi.com.cn)，你可以获取最新的游戏动态、评测推荐，以及参与玩家讨论。无论你是休闲玩家还是硬核爱好者，都能在这里找到属于自己的乐趣。
+
+## 主要特点
+
+- **游戏资讯**：每日更新热门游戏新闻与行业动态，帮助你第一时间了解游戏圈新鲜事。
+- **玩家社区**：支持发帖、评论与互动，和同好一起分享游戏心得。
+- **资源索引**：提供游戏下载指引、攻略合集等实用链接，方便快速查找。
+- **简洁界面**：页面设计清爽，导航清晰，减少信息干扰，专注内容本身。
+
+## 如何访问
+
+直接通过浏览器打开以下网址即可进入爱游戏：
+
+```
+https://home-official-aiyouxi.com.cn
+```
+
+无需注册即可浏览大部分内容，部分社区功能可能需要简单注册登录。
+
+## 安全提示
+
+- 请认准官方域名 `home-official-aiyouxi.com.cn`，避免访问仿冒或钓鱼站点。
+- 爱游戏不会主动索取你的账号密码或支付信息，请保持警惕。
+
+## 联系我们
+
+如有意见反馈或合作意向，可通过网站内提供的联系方式与我们取得联系。  
+感谢你对爱游戏的支持，期待在 [https://home-official-aiyouxi.com.cn](https://home-official-aiyouxi.com.cn) 与你相遇。
