@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识库 · 老哥社区</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f2f4f7;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #2c3e4f;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 1120px;
+            width: 100%;
+        }
+
+        /* 头部卡：简洁标识 */
+        .hero-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2.8rem 2rem 2.4rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0,0,0,0.02);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .hero-card h1 {
+            font-size: 2.4rem;
+            font-weight: 450;
+            letter-spacing: -0.02em;
+            color: #1f2a36;
+        }
+        .hero-card .sub {
+            margin-top: 0.6rem;
+            color: #5b6f82;
+            font-size: 1.1rem;
+            font-weight: 340;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-card .sub a {
+            color: #2c6b9e;
+            text-decoration: none;
+            border-bottom: 1px solid #b0c8dd;
+            font-weight: 400;
+        }
+        .hero-card .sub a:hover {
+            border-bottom-color: #2c6b9e;
+        }
+
+        /* 分区卡片布局：目录感网格 */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 1.2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.6rem 1.5rem 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 0 0 1px #e9edf2;
+            transition: box-shadow 0.15s ease;
+        }
+        .card:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04), 0 0 0 1px #d2dbe6;
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 420;
+            margin-bottom: 0.5rem;
+            color: #1f2a36;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card h2 i {
+            display: inline-block;
+            font-style: normal;
+            background: #e3eaf2;
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 40%;
+            text-align: center;
+            line-height: 1.6rem;
+            font-size: 1rem;
+            color: #2c5f7c;
+        }
+        .card p, .card li {
+            color: #364a5c;
+            font-size: 0.95rem;
+        }
+        .card ul, .card ol {
+            padding-left: 1.2rem;
+            margin: 0.6rem 0 0.2rem;
+        }
+        .card li {
+            margin-bottom: 0.25rem;
+        }
+        .card .badge {
+            background: #eef3f9;
+            padding: 0.15rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            color: #2c5d7a;
+            display: inline-block;
+            margin-top: 0.4rem;
+        }
+
+        /* 提示区 + 相关信息区 双列 */
+        .info-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 1.8rem 0 2.2rem;
+        }
+        .notice-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.6rem 1.5rem 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 0 0 1px #e9edf2;
+        }
+        .notice-card h3 {
+            font-size: 1.1rem;
+            font-weight: 460;
+            margin-bottom: 0.7rem;
+            color: #1f2a36;
+            border-left: 3px solid #8aaac8;
+            padding-left: 0.75rem;
+        }
+        .notice-card p, .notice-card li {
+            font-size: 0.95rem;
+        }
+        .notice-card ul {
+            padding-left: 1.2rem;
+            margin: 0.4rem 0;
+        }
+        .faq-item {
+            margin-top: 0.8rem;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1a2b3b;
+        }
+        .faq-item span {
+            color: #3e576d;
+        }
+
+        /* 简洁引语条 */
+        .footnote {
+            background: white;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 0 0 1px #e1e7ee;
+            font-size: 0.95rem;
+            color: #3f576b;
+            margin: 0.5rem 0 1.5rem;
+        }
+        .footnote a {
+            color: #2c6b9e;
+            text-decoration: none;
+            border-bottom: 1px solid #b5ccdf;
+        }
+        .footnote a:hover {
+            border-bottom-color: #1f4f77;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body { padding: 1rem 0.8rem; }
+            .hero-card { padding: 2rem 1.2rem; }
+            .hero-card h1 { font-size: 1.9rem; }
+            .guide-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+            .info-pair { grid-template-columns: 1fr; gap: 1.2rem; }
+            .card, .notice-card { padding: 1.2rem; }
+        }
+        @media (min-width: 800px) {
+            .guide-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #dfe6ef;
+            margin: 1.8rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 卡：简明指南入口 -->
+    <div class="hero-card">
+        <h1>📘 简明指南 · 老哥社区</h1>
+        <div class="sub">
+            一个由共同兴趣与彼此分享构建的角落。<br>
+            你可以从 <a href="https://home-lgw.com">老哥社区</a> 的目录页开始，慢慢探索。
+        </div>
+    </div>
+
+    <!-- 目录感布局：三个知识区块 -->
+    <div class="guide-grid">
+        <div class="card">
+            <h2><i>📍</i> 社区脉络</h2>
+            <p>理解社区的日常节奏和主题分区。内容涵盖生活分享、技术闲聊、阅读与出行，所有讨论都围绕真实经历展开。</p>
+            <ul>
+                <li>话题分类易懂，板块按兴趣聚合</li>
+                <li>鼓励首次发言前阅读置顶帖</li>
+                <li>老成员会主动引导新朋友熟悉氛围</li>
+            </ul>
+            <span class="badge">🔹 板块一览</span>
+        </div>
+        <div class="card">
+            <h2><i>📁</i> 实用资源</h2>
+            <p>由社区成员共同维护的工具箱、文档索引和常见问题贴。检索前可先浏览精粹区域。</p>
+            <ul>
+                <li>常用指南与自查手册</li>
+                <li>社区整理的实用链接集</li>
+                <li>不定期更新的专题合集</li>
+            </ul>
+            <span class="badge">📎 持续更新</span>
+        </div>
+        <div class="card">
+            <h2><i>💬</i> 交流习惯</h2>
+            <p>这里更看重平实对话。提问时带一点上下文，回复者通常更愿意详细展开。</p>
+            <ol>
+                <li>发帖前使用搜索</li>
+                <li>引用他人观点时注明楼层</li>
+                <li>避免重复开贴，善用编辑功能</li>
+            </ol>
+            <span class="badge">⚡ 温和讨论</span>
+        </div>
+    </div>
+
+    <!-- 提示区 + 相关信息区 (双列) -->
+    <div class="info-pair">
+        <div class="notice-card">
+            <h3>⏳ 访问提醒</h3>
+            <p>如果你是初次来访，建议先花几分钟了解版规与常见提醒。社区没有复杂门槛，但相互尊重是最基本的前提。</p>
+            <ul>
+                <li>部分内容需要注册后可见，注册流程简洁</li>
+                <li>建议使用常用邮箱，避免遗漏验证邮件</li>
+                <li>如果遇到访问缓慢或页面异常，可以稍后重试或查看帮助帖</li>
+            </ul>
+            <p style="margin-top: 0.6rem; font-size: 0.9rem; background: #f6f9fd; padding: 0.4rem 0.8rem; border-radius: 40px;">
+                🧭 部分板块仅对成员开放，这也是为了维护交流质量。
+            </p>
+        </div>
+        <div class="notice-card">
+            <h3>📌 相关信息</h3>
+            <div class="faq-item">
+                <strong>FAQ 摘要</strong>
+                <span>—— 如何找到旧帖？每个话题页顶部有筛选，也可按标签浏览。</span>
+            </div>
+            <div class="faq-item">
+                <strong>关于通知</strong>
+                <span>被回复时会收到站内提醒，可随时在设置中调整通知偏好。</span>
+            </div>
+            <div class="faq-item">
+                <strong>内容存档</strong>
+                <span>每月有精华整理帖，方便错过讨论的成员回顾。</span>
+            </div>
+            <div style="margin-top: 1rem; border-top: 1px dashed #dce3ec; padding-top: 0.8rem; font-size: 0.9rem;">
+                🔍 更多细节可以前往 <a href="https://home-lgw.com" style="color:#2c6b9e; text-decoration: underline;">老哥社区</a> 首页浏览。
+            </div>
+        </div>
+    </div>
+
+    <!-- 额外说明：节奏分隔 -->
+    <div class="footnote">
+        <span>📖 社区目录像一个慢慢扩大的笔记本，每一页都来自日常的积累。</span>
+    </div>
+
+    <!-- 另一条轻提示：自然嵌入链接 -->
+    <div style="background: white; border-radius: 20px; padding: 1rem 1.6rem; box-shadow: 0 2px 6px rgba(0,0,0,0.02); border: 1px solid #e3eaf3; margin: 1rem 0;">
+        <p style="font-size: 0.96rem; display: flex; flex-wrap: wrap; gap: 0.3rem 0.6rem; align-items: center;">
+            <span>🌱</span> 如果你希望了解更多社区调性，可以试试在 
+            <a href="https://home-lgw.com" style="color:#1f5680; text-decoration: none; border-bottom: 1px solid #b8cfe3; font-weight: 430;">老哥社区</a> 
+            置顶区找到「新人指引」，那里有你想要的大部分背景信息。
+        </p>
+    </div>
+
+    <!-- 极简 footer 风格 -->
+    <hr>
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.85rem; color: #5b7087; padding: 0.4rem 0 1.2rem;">
+        <span>知识库入口式页面 · 索引与提醒</span>
+        <span style="background: #e8eef6; padding: 0.1rem 1rem; border-radius: 30px;">主页 · 老哥社区</span>
+    </div>
+
+</div>
+</body>
+</html>
